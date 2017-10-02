@@ -1,0 +1,52 @@
+2. Introduction to KOKO
+
+Before using KOKO to extract products from HappyDB, I'll give a brief introduction of KOKO's query language.
+Here's am example query Q_prod that I'll use to extract products.
+
+extract "Ngrams(1,1)" x from "./happydb.txt" if
+		   ("bought a new" x {0.01}) or
+		   ("bought a few" x {0.01}) or
+		   ("bought some" x {0.01}) or
+		   ("bought a" x {0.01}) or
+		   (x "I bought" {0.01}) or		   
+		   ("purchased a new" x {0.01}) or
+		   ("purchased a few" x {0.01}) or
+		   ("purchased some" x {0.01}) or
+		   ("purchased a" x {0.01}) or
+		   (x "I purchased" {0.01})
+with threshold 0.2
+excluding (str(x) matches ".*(new|NEW|few).*")
+excluding (str(x) matches ".*(,|\.|;|!|\$|\(|\)|-).*")
+excluding (str(x) matches ".*[0-9]+.*")
+excluding (str(x) matches ".*(and|or|so|the|this|that).*")
+
+To understand Q_prod, let's take a look at the syntax of KOKO.
+KOKO syntax
+
+(extract ⟨keyword⟩ x from ⟨document name⟩ if
+⟨condition⟩
+(with threshold ⟨threshold⟩)
+[excluding ⟨e-condition⟩]
+
+where the conditions are defined as follows:
+
+⟨condition⟩ ::= ⟨condition⟩ or ⟨condition⟩ |
+                        (x {⟨string⟩} ⟨weight⟩) |
+                        (x ⟨string⟩ ⟨weight⟩) |
+                        (x near ⟨string⟩ ⟨weight⟩) |
+                        (str(x) matches⟨pattern⟩) |
+                        (str(x) [contains|mentions] {⟨string⟩} ⟨weight⟩) |
+                        (str(x) [contains|mentions] ⟨string⟩ ⟨weight⟩)                        
+⟨weight⟩ ::= empty | number in [0,1]                        
+⟨threshold⟩ ::= number in [0,1]                        
+⟨pattern⟩::= ⟨regular expression⟩
+
+
+Specifically, a KOKO query will extract entities x of type ⟨keyword⟩ from a document ⟨document name⟩, if the score of x exceeds the treshold ⟨threshold⟩.
+The score is computed as the cumulative weights of conditions that are satisfied by x in the dataset.
+Let's use the query Q_prod presented above as an example
+In Q_prod, the ⟨keyword⟩ is "Ngrams(1,1)", which means all the one-gram in the document.
+We can also use "Ents" for named entities, or "Nps" for noun phrases.
+There are twelve conditions in ⟨condition⟩. For example, ("bought a new" x {0.01}) means that an entity x with a preceding string of "bought a new" will have its score increased by 0.01 -- i.e., the weight of the condition.
+And the first "excluding" keyword specifies that the matching entities should not be any word containing "new", "NEW", or "few" -- we are more interested in "car", for instance, than "a new car" or "a few cars".
+Other "excluding" conditions have a similar role.
