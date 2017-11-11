@@ -1,0 +1,51 @@
+Uploaded data:
+cleaned_hm.csv
+demographic.csv
+senselabel.csv
+
+original_hm.csv(no, subset of cleaned_hm.csv)
+
+Description:
+HappyDB is a corpus of 100,000 crowd-sourced happy moments.
+The goal of the corpus is to advance the state of the art of understanding the
+causes of happiness that can be gleaned from text.
+
+Dataset:
+- cleaned_hm.csv: the cleaned-up corpus of 100,000 crowd-sourced happy moments.
+For example, we have done spell checking over the whole corpus, and remove empty
+or one-word statements.
+
+- demographic.csv: the demographic information of the worker who provided the
+moment.
+The information includes worker id, age, country, gender, marital status, and
+status of parenthood.
+
+
+The happy moments are crowd-sourced via Amazon’s Mechanical Turk. Each worker is
+given the following task:
+What made you happy today? Reflect on the past 24 hours, and recall
+three actual events that happened to you that made you happy. Write
+down your happy moment in a complete sentence.
+(Write three such moments.)
+
+
+Here are a few interesting candidate tasks worth exploring.
+Of course, explore the corpus in whatever way you want:)
+
+Entity Extraction tasks:
+- Find the purchased products that make people happy.
+- Find the tourist destinations that make people happy.
+- Find the sports that people enjoy most.
+- Find the books that make people happy.
+
+Machine learning tasks:
+- Classification in terms of gender of each happy moment's author.
+- Classification in terms of marriage status of each happy moment's author.
+- Classification in terms of outdoor/indoor activity of each happy moment.
+- Multi-class classification in  terms of the age group of each happy moment's author.
+- Clustering of happy moments.
+
+
+Please cite the following publication if you are using the dataset for your
+work.
+???
