@@ -17,6 +17,8 @@ down your happy moment in a complete sentence.
 The goal of the corpus is to advance the understanding of the
 causes of happiness through text-based reflection.
 
+More information is available on the HappyDB website (https://rit-public.github.io/HappyDB/).
+
 Dataset:
 - cleaned_hm.csv: the cleaned-up corpus of 100,000 crowd-sourced happy moments.
 For cleaning up, we have done spell checking over the whole corpus, and remove empty
@@ -40,7 +42,7 @@ To provide some inspiration, here are a few interesting exploration questions I 
 destinations/... that make people happy?
 - Can we predict gender/marriage status/parenthood/age groups based on happy moment texts?
 - How many indoor and outdoor activities are in the corpus respectively?
-- Any interesting clustering of happy moments?
+- Can we find interesting ways of clustering happy moments?
 
 
 Please cite the following publication if you are using the dataset for your
