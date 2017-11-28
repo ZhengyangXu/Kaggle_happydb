@@ -2,9 +2,6 @@ Uploaded data:
 cleaned_hm.csv
 demographic.csv
 
-senselabel.csv(derived results)
-original_hm.csv(redundant data)
-
 Description:
 HappyDB is a corpus of more than 100,000 happy moments crowd-sourced via
 Amazon’s Mechanical Turk.
@@ -47,4 +44,4 @@ destinations/... that make people happy?
 
 Please cite the following publication if you are using the dataset for your
 work.
-???
+TBD
