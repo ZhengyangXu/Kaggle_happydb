@@ -44,4 +44,6 @@ destinations/... that make people happy?
 
 Please cite the following publication if you are using the dataset for your
 work.
-TBD
+HappyDB: A Corpus of 100,000 Crowdsourced Happy Moments, LREC 2018
+Akari Asai, Sara Evensen, Behzad Golshan, Alon Halevy, Vivian Li, Andrei
+Lopatenko, Daniela Stepanov, Yoshihiko Suhara, Wang-Chiew Tan and Yinzhan Xu
